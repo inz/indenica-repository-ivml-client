@@ -1,4 +1,3 @@
-import ivml.api.IIvmlApi;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -34,6 +33,7 @@ import de.uni_hildesheim.sse.persistency.StringProvider;
 import de.uni_hildesheim.sse.reasoning.core.reasoner.IReasoner;
 import de.uni_hildesheim.sse.reasoning.core.reasoner.ReasoningResult;
 import de.uni_hildesheim.sse.reasoning.drools.DroolsReasoner;
+import eu.indenica.runtime.api.IIvmlApi;
 
 /**
  * Small running example of an IVML stand alone application.
@@ -102,7 +102,7 @@ public class Client extends JFrame {
     private File showDialog() {
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter =
-                new FileNameExtensionFilter("IVML Files (*.ivml)", "ivml");
+                new FileNameExtensionFilter("IVML Files (*.eu.indenica.runtime)", "eu.indenica.runtime");
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(this);
         File ivmlFile = null;
@@ -120,7 +120,7 @@ public class Client extends JFrame {
         String apiUrl = "http://0.0.0.0:45690/ivml-api";
         URL apiWsdl = new URL(apiUrl + "?wsdl");
 
-        IIvmlApi client = DynamicWSClient.createClient(IIvmlApi.class, apiWsdl);
+        IIvmlApi client = DynamicWSClient.createClientJaxws(IIvmlApi.class, apiWsdl);
         
         String model = client.getModel(modelName);
         File tempDir = Files.createTempDir();
