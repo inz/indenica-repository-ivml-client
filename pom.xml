@@ -113,6 +113,10 @@
 
 	<repositories>
 		<repository>
+			<id>local-lib</id>
+			<url>file://${basedir}/lib/</url>
+		</repository>
+		<repository>
 			<id>maven-repo</id>
 			<name>maven-repo</name>
 			<url>http://repo2.maven.org/maven2</url>
@@ -120,10 +124,6 @@
 		<repository>
 			<id>infosys-repo</id>
 			<url>http://www.infosys.tuwien.ac.at/mvn/</url>
-		</repository>
-		<repository>
-			<id>local-lib</id>
-			<url>file://lib</url>
 		</repository>
 		<repository>
 			<id>JBossRepo</id>
